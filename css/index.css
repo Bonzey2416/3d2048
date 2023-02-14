@@ -1,5 +1,16 @@
-﻿* {
-  font-family: 'Microsoft YaHei', 'Arial', '黑体', '宋体', sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Montserrat:400,700|Poppins|Space+Mono:400,400i,700,700i);
+@import url(https://fontlibrary.org/face/segment7);
+@font-face {font-family: "Google Sans"; font-weight: normal; font-style: normal; src: url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.eot"); src: url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.woff") format("woff"), url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/000be6a5acfcd4e4a425e9f1bb6c80f0.svg#Google Sans") format("svg"); }
+@font-face {font-family: "Google Sans"; font-weight: normal; font-style: italic; src: url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.eot"); src: url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.woff") format("woff"), url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/69b6dafcd18436d717d1c4a71c4eb6b1.svg#Google Sans") format("svg"); }
+@font-face {font-family: "Google Sans"; font-weight: 500; font-style: normal; src: url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.eot"); src: url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.woff") format("woff"), url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0e3f1c9efebea39cb811fbb86c2fc53f.svg#Google Sans Medium") format("svg"); }
+@font-face {font-family: "Google Sans"; font-weight: 500; font-style: italic; src: url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.eot"); src: url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.woff") format("woff"), url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d2e7466051a55d11378042f258e951c1.svg#Google Sans Medium") format("svg"); }
+@font-face {font-family: "Google Sans"; font-weight: bold; font-style: normal; src: url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.eot"); src: url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.woff") format("woff"), url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/371213c6129c24324f5aa2e2e61319af.svg#Google Sans") format("svg"); }
+@font-face {font-family: "Google Sans"; font-weight: bold; font-style: italic; src: url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.eot"); src: url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.woff") format("woff"), url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b51a2098e785c5323cb72f371ca0cde7.svg#Google Sans") format("svg"); }
+@font-face {font-family: "Google Sans Text"; font-weight: normal; font-style: normal; src: url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.eot"); src: url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.woff") format("woff"), url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/41cdafd19e156a1f74759f9c88b878ff.svg#Google Sans Text") format("svg"); }
+@font-face {font-family: "Google Sans Text"; font-weight: bold; font-style: normal; src: url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.eot"); src: url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.woff") format("woff"), url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/6a8dc683d1b4db924a75e5a0e3ed8410.svg#Google Sans Text Medium") format("svg"); }
+
+
+* {
   padding: 0;
   margin: 0;
   user-select: none;
@@ -12,6 +23,7 @@ li {
 }
 body {
   background-color: #f5deb3;
+  font-family: 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
 }
 .header {
   position: relative;
@@ -32,10 +44,10 @@ body {
 .tion1 * {
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease; /* Firefox 4 */
-  -webkit-transition: all 0.5s ease; /* Safari 和 Chrome */
+  -webkit-transition: all 0.5s ease; /* Safari & Chrome */
   -o-transition: all 0.5s ease; /* Opera */
 }
-/* 数字正方体样式 */
+/* Tile styling */
 .ul {
   height: 100px;
   width: 100px;
@@ -54,7 +66,7 @@ body {
   height: inherit;
   position: absolute;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
   background: rgba(0, 0, 0, 0.5);
   line-height: 100px;
   font-size: 38px;
@@ -170,7 +182,7 @@ body {
   height: inherit;
   position: absolute;
   text-align: center;
-  font-weight: bold;
+  font-weight: 700;
   background: rgba(53, 35, 35, 0.15);
   line-height: 65px;
   font-size: 30px;
@@ -194,7 +206,7 @@ body {
   transform: rotateX(270deg) translateZ(20px);
 }
 .li23 {
-  /*  左右  */
+  /*  left/right  */
   width: 100px;
   height: 70px;
   -webkit-transform: rotateY(90deg) translateZ(100px);
@@ -212,14 +224,14 @@ body {
 }
 .li26 {
   -webkit-transform: translateZ(50px);
-  transform: translateZ(50px);
-} /*这是正面*/
+  transform: translateZ(50px);   font-family: 'Google Sans Text', roboto, helvetica neue, sans-serif; font-weight: 700;
+} /*+ve*/
 #mian-tz-sz {
   position: absolute;
   left: 58%;
   top: 150px;
   margin-left: -175px;
-  width: 350px; /*  设置大小  */
+  width: 350px; /*  sizing  */
   height: 350px;
 }
 #my_tblr {
@@ -227,7 +239,7 @@ body {
   top: 480px;
   right: -38%;
 }
-/* 上下左右箭头的样式 */
+/* arrow styling */
 .ul3 {
   cursor: pointer;
   height: 50px;
@@ -262,7 +274,7 @@ body {
   height: inherit;
   position: absolute;
   text-align: center;
-  font-weight: bold;
+  font-weight: 500;
   background: rgba(0, 0, 0, 0.5);
   line-height: 50px;
   font-size: 25px;
@@ -318,7 +330,7 @@ body {
   top: 50px;
   z-index: 1;
 }
-/* 玩法介绍 */
+/* how to play */
 .ul-wf {
   /* opacity: 0; */
   height: 220px;
@@ -340,6 +352,7 @@ body {
   height: inherit;
   position: absolute;
   font-weight: bold;
+  font-family: 'Google Sans Text', roboto, helvetica neue, sans-serif;
   background: rgba(53, 35, 35, 0.15);
   font-size: 17px;
   color: #000;

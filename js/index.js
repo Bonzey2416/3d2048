@@ -1,22 +1,22 @@
 ﻿$(document).ready(function () {
-  var mainsz = $('#mian-tz-sz'), //获取地图
-    wfjs = $('#wfjs'), //获取玩法介绍按钮
-    wf_js = $('#wf_js'), //获取玩法介绍
-    tbool = true, //  tbool判断显示还是关闭 玩法介绍
-    reset = $('#reset'); //获取reset按钮
-  TD_func.initmap(mainsz); // 初始化元素地图 给地图增加方块
+  var mainsz = $('#mian-tz-sz'), //Get the map
+    wfjs = $('#wfjs'), //Get the gameplay introduction button
+    wf_js = $('#wf_js'), //Get an introduction to how to play
+    tbool = true, //  Tbool judgement on whether to display or off Introduction to gameplay
+    reset = $('#reset'); //Get a reset button
+  TD_func.initmap(mainsz); // Initialise the element map and add squares to the map
   TD_func.my_tblr.init();
 
   reset.bind('click', function () {
-    //设置 重玩按钮 click事件
-    TD_func.copymap(TD_func.my_tzfa, TD_func.maps); //清空数组
-    $('#score')[0].innerHTML = '0'; //设置初始化分数
-    mainsz[0].innerHTML = ''; //初始化数字
-    TD_func.initmap(mainsz); //初始化元素地图
+    //Settings Replay button click event
+    TD_func.copymap(TD_func.my_tzfa, TD_func.maps); //Empty the array
+    $('#score')[0].innerHTML = '0'; //Set initialisation scores
+    mainsz[0].innerHTML = ''; //Initialise numbers
+    TD_func.initmap(mainsz); //Initialise element map
   });
 
   wfjs.bind('click', function () {
-    //设置 玩法介绍 click事件
+    //Settings Introduction to Click Events
     if (tbool) {
       $('#wf_js li').css('opacity', '1');
       tbool = false;
@@ -27,35 +27,35 @@
   });
 });
 document.onkeydown = function (event) {
-  //上下左右 触发的事件
+  //Triggered events up and down, left and right
   var e = event || window.event || arguments.callee.caller.arguments[0];
-  //上下左右 //↑↓←→
+  //Up and down, left and right //↑↓←→
   if (e && e.keyCode == 38) {
-    //上
+    //up
     event_func.runing('t');
     TD_func.my_tblr.active('↑');
   }
   if (e && e.keyCode == 40) {
-    //下
+    //down
     event_func.runing('d');
     TD_func.my_tblr.active('↓');
   }
   if (e && e.keyCode == 37) {
-    //左
+    //left
     event_func.runing('l');
     TD_func.my_tblr.active('←');
   }
   if (e && e.keyCode == 39) {
-    //右
+    //right
     event_func.runing('r');
     TD_func.my_tblr.active('→');
   }
 };
-//封装函数
+//Encapsulation function
 var event_func = {
-  //按键会发生的事情
+  //What will happen by pressing the button
   e: [
-    //方块事件数组
+    //Array of square events
     [0, 0, 0, 0],
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -63,7 +63,7 @@ var event_func = {
   ],
   runing: function (w) {
     switch (
-      w //上下左右
+      w //Up and down, left and right
     ) {
       case 't':
         Cube_fun.move(TD_func.my_tzfa, this.e, w);
@@ -84,10 +84,10 @@ var event_func = {
 
 var TD_func = {
   //公共使用
-  opacity: 0.8, //方块的透明度
-  jd: 8, //往旁边倾斜的角度
+  opacity: 0.8, //Transparency of squares
+  jd: 8, //Tilt to the side at an angle
   color: {
-    //每种数字的颜色
+    //The colour of each number
     0: '255,255,255',
     1: '253,253,251',
     2: '251,250,227',
@@ -106,34 +106,52 @@ var TD_func = {
     16384: '244,120,0',
     32768: '243,90,0',
     65536: '242,60,0',
-    131072: '241,30,0', //最高到 131072  如果有更厉害的 算我输了
+    131072: '241,30,0', 
+    262144: '240,0,0', 
+    524288: '250,10,10', 
+    1048576: '255,22,23', 
+    2097152: '255,46,49', 
+    4194304: '255,80,100', 
+    8388608: '255,110,150', 
+    16777216: '255,160,220', 
+    33554432: '255,200,255', 
+    67108864: '255,100,255', 
+    134217728: '255,0,255', 
+    268435456: '191,0,191', 
+    536870912: '128,0,128', 
+    1073741824: '64,0,64', 
+    2147483648: '0,0,0', 
   },
   maps: [
-    //地图数组 用来reset
+    //Map array is used to reset
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
   ],
   my_tzfa: [
-    //地图的数字数组
+    //Digital array of maps
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
   ],
   fontsize: {
-    //对应 每一位数 的字体大小
+    //Corresponds to the font size of each digit
     3: '50px',
     4: '36px',
     5: '30px',
-    6: '28px',
+    6: '26px',
+    7: '22px',
+    8: '20px',
+    9: '18px',
+    10: '16px',
   },
-  mapsize: new Object(), //记录地图大小
-  ul: new Object(), //循环用
+  mapsize: new Object(), //Record the map size
+  ul: new Object(), //Use for recycling
   li: new Object(),
   copymap: function (a, b) {
-    //copy地图
+    //Copy map
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
         a[i][j] = b[i][j];
@@ -141,60 +159,68 @@ var TD_func = {
     }
   },
   initmap: function (e) {
-    //初始化 给地图加方块
+    //Initialize Add a block to the map
     var i,
       j,
       s,
       score = $('#scoretxt')[0];
     if (score.innerHTML == 'Game Over') {
-      //这里 如果原来的gameover 的话 吧 gameover 改成 score
+      //Here, if the original gameover is changed to score.
       $(score).css('font-size', '30px');
       score.innerHTML = 'score:';
     }
-    this.mapsize.w = parseInt(e.css('width')); //记录地图高和宽
+    this.mapsize.w = parseInt(e.css('width')); //Record map height and width
     this.mapsize.h = parseInt(e.css('height'));
     for (i = 0; i < 4; i++) {
       for (j = 0; j < 4; j++) {
         s = this.my_tzfa[i][j];
-        ul = this.create_TD(s); // 标准方块给ul一个标准方块
-        ul.appendTo(e); //添加到地图
-        this.setindex(ul, i, j); //设置在地图的位置 和 数组的下标
-        this.setcolor(ul); //设置颜色
-        $(ul).css('z-index', '2'); //设置显示在第二层
+        ul = this.create_TD(s); // The standard square gives ul a standard square.
+        ul.appendTo(e); //Add to the map
+        this.setindex(ul, i, j); //Set the position on the map and subscript of the array
+        this.setcolor(ul); //Set the color
+        $(ul).css('z-index', '2'); //Settings appear on Layer 2
         event_func.e[i][j] = ul;
         ul.x = 0 - this.jd;
-        ul.y = this.jd; //旋转角度
+        ul.y = this.jd; //Rotation angle
         if (s == '0') {
-          //为"0"则不显示   设置显示在第一层 透明度为0
+          //If it is "0", it will not be displayed. The settings are displayed in the first layer. The transparency is 0.
           $(ul).css('opacity', '0');
           $(ul).css('z-index', '1');
         }
       }
     }
-    Cube_fun.addnumber(this.my_tzfa, event_func.e); //随机生成两个数字
+    Cube_fun.addnumber(this.my_tzfa, event_func.e); //Randomly generate two numbers
     Cube_fun.addnumber(this.my_tzfa, event_func.e);
   },
   setcolor: function (e) {
-    //设置颜色和字体大小
+    //Set the color and font size
     var str, i, color;
-    str = this.my_tzfa[e.index_x][e.index_y]; //获取 数字
-    if (parseInt(str) >= 16) {
-      //大于16改变字体颜色
-      color = '#fff';
+    str = this.my_tzfa[e.index_x][e.index_y]; //Get the number
+    if (parseInt(str) >= 8) {
+      //Change the font color greater than 8
+      color = '#fffcf9';
     } else {
-      color = '#000';
+      color = '#753';
     }
     for (var i = 0; i < $(e).children().length; i++) {
-      //根据数字改变颜色
+      //Change color according to numbers
       $($(e).children()[i]).css({
         background: 'rgba(' + this.color[str] + ',' + TD_func.opacity + ')',
         color: color,
-      }); //颜色透明度
-      //设置正面的透明度 为 1
+      }); //Color transparency
+      //Set the transparency of the front to 1
       if ($(e).children().length - 1 == i)
-        $($(e).children()[i]).css('background', 'rgba(' + this.color[str] + ',1)'); //颜色透明度
-      if ($($(e).children()[i])[0].innerHTML.length > 5) {
-        //设置字体大小
+        $($(e).children()[i]).css('background', 'rgba(' + this.color[str] + ',1)'); //Color transparency
+      if ($($(e).children()[i])[0].innerHTML.length > 9) {
+        //Set the font size
+        $($(e).children()[i]).css('font-size', this.fontsize['10']);
+      } else if ($($(e).children()[i])[0].innerHTML.length > 8) {
+        $($(e).children()[i]).css('font-size', this.fontsize['9']);
+      } else if ($($(e).children()[i])[0].innerHTML.length > 7) {
+        $($(e).children()[i]).css('font-size', this.fontsize['8']);
+      } else if ($($(e).children()[i])[0].innerHTML.length > 6) {
+        $($(e).children()[i]).css('font-size', this.fontsize['7']);
+      } else if ($($(e).children()[i])[0].innerHTML.length > 5) {
         $($(e).children()[i]).css('font-size', this.fontsize['6']);
       } else if ($($(e).children()[i])[0].innerHTML.length > 4) {
         $($(e).children()[i]).css('font-size', this.fontsize['5']);
@@ -206,14 +232,14 @@ var TD_func = {
     }
   },
   setindex: function (e, a, b) {
-    //设置 数组下标 和  在地图的位置
-    e.index_x = a; //记住数组下表
+    //Set the array subscript and position on the map
+    e.index_x = a; //Remember the table below the array.
     e.index_y = b;
-    $(e).css('left', b * (this.mapsize.w / 3) + 'px'); //设置 在 地图 的 位置
+    $(e).css('left', b * (this.mapsize.w / 3) + 'px'); //Set the location on the map
     $(e).css('top', a * (this.mapsize.w / 3) + 'px');
   },
   create_TD: function (s) {
-    //创建一个标准3d正方体
+    //Create a standard 3D cube
     var i;
     this.ul = $("<ul class='ul tion1'/>");
     for (i = 0; i < 6; i++) $("<li class='li li" + (i + 1) + "'>" + s + '</li>').appendTo(this.ul);
@@ -259,7 +285,7 @@ var TD_func = {
       }
     },
     create_TD: function (s) {
-      //创建一个标准3d黑色正方体
+      //Create a standard 3D black cube
       var i;
       this.ul = $("<ul class='ul3 tion1'/>");
       for (i = 0; i < 6; i++)
@@ -276,78 +302,78 @@ var TD_func = {
 };
 
 var Cube_fun = {
-  //立方体 行动 判断 等等
-  //移动用
-  xxx: true, //判断用
+  //Cube action, judgment, etc.
+  //For mobile use
+  xxx: true, //Judgment
   map_run: [
-    //地图的数字数组 用来判断是否移动
+    //The number array of maps is used to determine whether to move or not.
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
     ['0', '0', '0', '0'],
   ],
   jh: function (e, map, x1, y1, x2, y2) {
-    //交换
+    //Exchange
     var t;
-    t = e[x1][y1]; //交换事件对象
+    t = e[x1][y1]; //Exchange Event Objects
     e[x1][y1] = e[x2][y2];
     e[x2][y2] = t;
 
-    t = map[x1][y1]; //交换 数字 数组
+    t = map[x1][y1]; //Exchange Digital Array
     map[x1][y1] = map[x2][y2];
     map[x2][y2] = t;
   },
   jhz: function (e, map, x1, y1, x2, y2) {
-    //左边的等于两个之和 右边设置为0 并且右边的重置 方块css
+    //The left is equal to the sum of two, the right is set to 0, and the right is reset square css.
     var score = $('#score')[0],
       fzz = $('#mian-tz-fzz')[0],
       fs = $('#mian-tz-fs')[0];
-    map[x1][y1] = parseInt(map[x1][y1]) + parseInt(map[x2][y2]) + ''; //设置第一个分数
-    map[x2][y2] = '0'; //重置第二个的分数
+    map[x1][y1] = parseInt(map[x1][y1]) + parseInt(map[x2][y2]) + ''; //Set the first score
+    map[x2][y2] = '0'; //Reset the second score
 
-    score.innerHTML = parseInt($('#score')[0].innerHTML) + parseInt(map[x1][y1]); //改变分数
-    fzz.className = 'ulli2'; //改变class
-    fs.className = 'ulli2'; //改变class
+    score.innerHTML = parseInt($('#score')[0].innerHTML) + parseInt(map[x1][y1]); //Change the score
+    fzz.className = 'ulli2'; //Change class
+    fs.className = 'ulli2'; //Change class
     setTimeout(function () {
-      fzz.className = 'ulli'; //改变class
-      fs.className = 'ulli'; //改变class
+      fzz.className = 'ulli'; //Change class
+      fs.className = 'ulli'; //Change class
     }, 100);
 
     for (var i = 0; i < $(e[x1][y1]).children().length; i++) {
-      //改变 第一个的 innerhtml
-      $($(e[x1][y1]).children()[i])[0].innerHTML = map[x1][y1]; //设置innerhtml
+      //Change the first innerhtml
+      $($(e[x1][y1]).children()[i])[0].innerHTML = map[x1][y1]; //Set up innerhtml
     }
     TD_func.setcolor(e[x1][y1]);
     setTimeout(function () {
       for (var i = 0; i < $(e[x2][y2]).children().length; i++) {
-        //改变 第二个的 innerhtml
-        $($(e[x2][y2]).children()[i])[0].innerHTML = map[x2][y2]; //设置innerhtml
+        //Change the innerhtml of the second one
+        $($(e[x2][y2]).children()[i])[0].innerHTML = map[x2][y2]; //Set up innerhtml
       }
       TD_func.setcolor(e[x2][y2]);
     }, 100);
-    $(e[x2][y2]).css('opacity', '0'); //消失
+    $(e[x2][y2]).css('opacity', '0'); //Disappear
   },
   addnumber: function (map, e) {
-    //随机生成 2 和 4
+    //Randomised generation 2 and 4
     var x = Math.floor(Math.random() * 4);
     var y = Math.floor(Math.random() * 4);
     var number = Math.floor(Math.random() * 20);
-    number = number == 0 ? 4 : 2; //20分之一是4 其他 2
+    number = number == 0 ? 4 : 2; //One of 20 points is 4 Other 2
     while (map[x][y] != '0') {
-      //随机 生成 在地图位置 如果 地图 位置 数字不是0 则 重新随机位置
+      //Randomly generated in map location If the map location number is not 0, then re-randomised position
       x = Math.floor(Math.random() * 4);
       y = Math.floor(Math.random() * 4);
     }
-    map[x][y] = number + ''; //给数字数组地图 赋值
+    map[x][y] = number + ''; //Assign the digital array map
     for (var i = 0; i < $(e[x][y]).children().length; i++) {
       //设置innerhtml
       $($(e[x][y]).children()[i])[0].innerHTML = map[x][y];
     }
-    TD_func.setcolor(e[x][y]); //设置颜色
-    $(e[x][y]).css('opacity', '1'); //显示
+    TD_func.setcolor(e[x][y]); //Set the colour
+    $(e[x][y]).css('opacity', '1'); //Show
   },
   run_deg: function (e, a, s) {
-    //旋转用
+    //Rotate
     switch (s) {
       case 't':
         e.x += a * 360;
@@ -366,7 +392,7 @@ var Cube_fun = {
     $(e).css('transform', ' rotateX(' + e.x + 'deg) rotateY(' + e.y + 'deg)');
   },
   run_px: function (e, s) {
-    //移动用
+    //For moving
     switch (s) {
       case 't':
         e.index_x--;
@@ -386,18 +412,18 @@ var Cube_fun = {
     parseInt($(e).css('left', (e.index_y * TD_func.mapsize.w) / 3 + 'px'));
   },
   isGameover: function (e) {
-    //上下左右 没有相邻的相等就GAver
+    //Up and down, left and right. If there is no adjacent equality, just GAver.
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 3; j++) {
         if (e[i][j] == e[i][j + 1])
-          //有一个相同就没 Gameover
+          //If there is the same, there is no Gameover.
           return true;
       }
     }
     for (var i = 0; i < 3; i++) {
       for (var j = 0; j < 4; j++) {
         if (e[i][j] == e[i + 1][j])
-          //有一个相同就没 Gameover
+          //If there is the same, there is no Gameover.
           return true;
       }
     }
@@ -407,14 +433,14 @@ var Cube_fun = {
     for (var i = 0; i < 4; i++) {
       for (var j = 0; j < 4; j++) {
         if (a[i][j] != b[i][j])
-          //有一个不同就是移动了
+          //One difference is moving.
           return true;
       }
     }
     return false;
   },
   isFull: function (map) {
-    //判断是否满了
+    //Judgement is full.
     for (var i = 0; i < map.length; i++)
       for (var j = 0; j < map[0].length; j++) {
         if (map[i][j] == '0') {
@@ -424,8 +450,8 @@ var Cube_fun = {
     return true;
   },
   move: function (map, e, w) {
-    //移动 数字地图 对象地图 w 的方向参数
-    TD_func.copymap(this.map_run, TD_func.my_tzfa); //记录之前的数组
+    //Move the direction parameters of digital map object map w
+    TD_func.copymap(this.map_run, TD_func.my_tzfa); //Record the previous array
     switch (w) {
       case 't':
         this.top_removeblank(map, e);
@@ -450,10 +476,10 @@ var Cube_fun = {
       default:
     }
     if (!this.isFull(map) && this.isrun(this.map_run, TD_func.my_tzfa)) {
-      //没满 并且 移动了 就加number
+      //If it's not full and move, add the number.
       this.addnumber(map, e);
     } else if (!this.isGameover(TD_func.my_tzfa)) {
-      //判断GAME OVER
+      //JUDGE GAME OVER
       if (!this.isFull(map)) {
         return;
       }
@@ -461,9 +487,9 @@ var Cube_fun = {
         fs = $('#mian-tz-fs')[0];
       $(score).css('font-size', '23px');
       score.innerHTML = 'Game Over';
-      fs.className = 'ulli2'; //改变class 动态效果
+      fs.className = 'ulli2'; //Change the class dynamic effect
       setTimeout(function () {
-        fs.className = 'ulli'; //改变class
+        fs.className = 'ulli'; //Change class
       }, 100);
     }
   },
@@ -477,7 +503,7 @@ var Cube_fun = {
           this.run_px(e[k - 1][i], 'd');
           this.run_deg(e[k][i], 1, 't');
           this.run_deg(e[k - 1][i], 1, 'd');
-          this.jh(e, map, k, i, k - 1, i); //改变map数组 和 e对象数组
+          this.jh(e, map, k, i, k - 1, i); //Change the map array and e object array
           k--;
         }
       }

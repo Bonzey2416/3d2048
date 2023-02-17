@@ -359,14 +359,14 @@ var Cube_fun = {
   },
   addnumber: function (map, e) {
     //Randomised generation 2 and 4
-    var x = Math.floor(Math.random() * 4);
-    var y = Math.floor(Math.random() * 4);
+    var x = Math.floor(Math.random() * 5);
+    var y = Math.floor(Math.random() * 5);
     var number = Math.floor(Math.random() * 20);
     number = number == 0 ? 4 : 2; //One of 20 points is 4 Other 2
     while (map[x][y] != '0') {
       //Randomly generated in map location If the map location number is not 0, then re-randomised position
-      x = Math.floor(Math.random() * 4);
-      y = Math.floor(Math.random() * 4);
+      x = Math.floor(Math.random() * 5);
+      y = Math.floor(Math.random() * 5);
     }
     map[x][y] = number + ''; //Assign the digital array map
     for (var i = 0; i < $(e[x][y]).children().length; i++) {
@@ -417,15 +417,15 @@ var Cube_fun = {
   },
   isGameover: function (e) {
     //Up and down, left and right. If there is no adjacent equality, just GAver.
-    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j < 3; j++) {
+    for (var i = 0; i < 5; i++) {
+      for (var j = 0; j < 4; j++) {
         if (e[i][j] == e[i][j + 1])
           //If there is the same, there is no Gameover.
           return true;
       }
     }
-    for (var i = 0; i < 3; i++) {
-      for (var j = 0; j < 4; j++) {
+    for (var i = 0; i < 4; i++) {
+      for (var j = 0; j < 5; j++) {
         if (e[i][j] == e[i + 1][j])
           //If there is the same, there is no Gameover.
           return true;
@@ -434,8 +434,8 @@ var Cube_fun = {
     return false;
   },
   isrun: function (a, b) {
-    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j < 4; j++) {
+    for (var i = 0; i < 5; i++) {
+      for (var j = 0; j < 5; j++) {
         if (a[i][j] != b[i][j])
           //One difference is moving.
           return true;

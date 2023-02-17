@@ -450,3 +450,10 @@ body {
 #github .reverse {
   transform: rotateY(180deg);
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #201a12;
+    color: white;
+  }
+}
